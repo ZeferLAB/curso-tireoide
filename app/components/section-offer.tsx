@@ -1,8 +1,12 @@
 'use client';
 
 import { CheckCircle, Lock } from 'lucide-react';
+import { useState } from 'react';
+import { CheckoutModal } from './checkout-modal';
 
 export function OfferSection() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const deliverables = [
         "Acesso Imediato à Academia",
         "Drive de Protocolos",
@@ -24,6 +28,12 @@ export function OfferSection() {
 
     return (
         <section id="oferta" className="bg-navy py-24 text-white">
+            <CheckoutModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                checkoutUrl="https://pay.hotmart.com/SEU_LINK_AQUI"
+            />
+
             <div className="container mx-auto px-4 max-w-5xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-6">
@@ -75,7 +85,7 @@ export function OfferSection() {
                             </div>
 
                             <button
-                                onClick={() => window.open('https://pay.hotmart.com/SEU_LINK_AQUI', '_blank')}
+                                onClick={() => setIsModalOpen(true)}
                                 className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg text-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
                             >
                                 Garantir minha vaga agora
