@@ -13,9 +13,9 @@ export function ModulesSection() {
             subtitle: "Treinamento técnico profundo, direto ao ponto e aplicável na rotina:",
             icon: BookOpen,
             items: [
-                "<strong>Bootcamp de Física e Ajuste de Imagem</strong> – controle total do aparelho, independentemente do modelo",
-                "<strong>Bootcamp de Domínio do TI-RADS</strong> – raciocínio claro para classificar e decidir sem dúvida",
-                "<strong>Protocolo Descomplicando a Biópsia</strong> – técnica, posicionamento e triangulação",
+                "<strong>Imersão em Física e Ajuste de Imagem</strong> – controle total do aparelho, independentemente do modelo",
+                "<strong>Domínio do Sistema TI-RADS</strong> – raciocínio claro para classificar e decidir sem dúvida",
+                "<strong>Protocolo de Biópsia e Triangulação</strong> – técnica, posicionamento e manuseio da agulha",
                 "<strong>Masterclass de Alcoolização</strong> de Nódulos da Tireoide – procedimento de alto valor agregado",
                 "<strong>O Olhar do Especialista</strong> – aulas com convidados (cirurgiões e especialistas)"
             ]
@@ -25,8 +25,8 @@ export function ModulesSection() {
             subtitle: "Tudo o que você precisa para ganhar tempo e segurança no dia a dia:",
             icon: FileText,
             items: [
-                "<strong>Arsenal de Laudos Editáveis</strong> e validados",
-                "<strong>Guias de Bolso</strong> (TI-RADS e Bethesda)",
+                "<strong>Banco de Laudos Editáveis</strong> e validados",
+                "<strong>Guias de Bolso</strong> (TI-RADS e Bethesda) para consulta rápida",
                 "<strong>Biblioteca de Referência</strong> com artigos traduzidos e comentados"
             ]
         },
@@ -35,22 +35,22 @@ export function ModulesSection() {
             subtitle: "Onde o conhecimento vira confiança:",
             icon: MessageCircle,
             items: [
-                "<strong>Plantão de Dúvidas ao Vivo</strong> (6 encontros): Hotseat quinzenal no Zoom para análise dos seus casos reais e difíceis",
+                "<strong>Plantão de Dúvidas ao Vivo</strong> (6 encontros): Grand Round quinzenal no Zoom para análise dos seus casos reais e difíceis",
                 "<strong>Grupo de Second Opinion</strong> (WhatsApp): Acesso por 1 ano à comunidade para tirar dúvidas em tempo real e trocar experiências com outros médicos"
             ]
         }
     ];
 
     return (
-        <section className="bg-slate-50 py-16 lg:py-24 font-['Poppins']">
+        <section className="bg-[#F5F5F5] py-16 lg:py-24 font-['Poppins']">
             <div className="container mx-auto px-4 max-w-4xl">
                 {/* Headline Section */}
                 <div className="text-center mb-12">
                     <h2 className="text-2xl lg:text-3xl font-bold text-[#041021] mb-4 uppercase leading-snug">
-                        O QUE É A FORMAÇÃO COMPLETA EM ULTRASSOM E BIÓPSIA DE TIREOIDE
+                        MAIS DO QUE UM CURSO: UMA ESTRUTURA COMPLETA DE EVOLUÇÃO PROFISSIONAL
                     </h2>
                     <p className="text-lg text-slate-600 font-light max-w-3xl mx-auto">
-                        Mais do que um curso: uma estrutura completa de evolução profissional. Esta formação foi desenhada para transformar conhecimento técnico em autoridade prática, reunindo conteúdo, ferramentas e acompanhamento.
+                        Esta formação foi desenhada para transformar conhecimento técnico em autoridade prática, reunindo conteúdo, ferramentas e acompanhamento.
                     </p>
                 </div>
 
@@ -66,11 +66,11 @@ export function ModulesSection() {
                                     className="w-full flex items-center justify-between p-6 lg:p-8 text-left hover:bg-slate-50 transition-colors"
                                 >
                                     <div className="flex items-center gap-4 lg:gap-6">
-                                        <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors", isOpen ? "bg-[#041021] text-[#F2B705]" : "bg-slate-100 text-slate-400 group-hover:text-[#041021]")}>
-                                            <Icon className="w-6 h-6" />
+                                        <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors", isOpen ? "bg-[#041021]" : "bg-white border border-slate-100")}>
+                                            <Icon className="w-6 h-6 text-[#F2B705]" />
                                         </div>
                                         <div>
-                                            <h3 className={clsx("text-lg lg:text-xl font-bold transition-colors uppercase", isOpen ? "text-[#041021]" : "text-slate-700 group-hover:text-[#041021]")}>
+                                            <h3 className={clsx("text-lg lg:text-2xl font-bold transition-colors uppercase", isOpen ? "text-[#041021]" : "text-slate-700 group-hover:text-[#041021]")}>
                                                 {module.title}
                                             </h3>
                                             {!isOpen && (
@@ -111,6 +111,16 @@ export function ModulesSection() {
                             </div>
                         );
                     })}
+                </div>
+
+                {/* CTA Button */}
+                <div className="text-center mt-12">
+                    <button
+                        onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-[#041021] hover:bg-[#1a253a] text-white text-lg font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-wide border-2 border-[#F2B705]"
+                    >
+                        VER VALORES E PLANOS
+                    </button>
                 </div>
             </div>
         </section>

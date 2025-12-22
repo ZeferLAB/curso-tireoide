@@ -1,3 +1,5 @@
+'use client';
+
 import { Medal } from 'lucide-react';
 import Image from 'next/image';
 
@@ -44,6 +46,16 @@ export function BioSection() {
                                     <span className="text-slate-200 text-sm lg:text-base font-medium">{item}</span>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* CTA Button */}
+                        <div className="pt-6">
+                            <button
+                                onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-[#F2B705] hover:bg-[#d9a404] text-[#041021] text-lg font-extrabold py-3 px-8 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-wide"
+                            >
+                                QUERO APRENDER COM A DRA. CLAUDIA
+                            </button>
                         </div>
                     </div>
 

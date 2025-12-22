@@ -1,3 +1,5 @@
+'use client';
+
 import { Play, Check } from 'lucide-react';
 
 export function HeroSection() {
@@ -61,7 +63,10 @@ export function HeroSection() {
 
                 {/* CTA Button */}
                 <div className="flex flex-col items-center gap-2 pb-2">
-                    <button className="bg-[#F2B705] hover:bg-[#d9a404] text-[#041021] text-lg lg:text-xl font-extrabold py-3 px-10 rounded-lg shadow-[0px_4px_15px_rgba(242,183,5,0.4)] hover:scale-105 transition-all duration-300 uppercase tracking-wide w-full max-w-md lg:w-auto">
+                    <button
+                        onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-[#F2B705] hover:bg-[#d9a404] text-[#041021] text-lg lg:text-xl font-extrabold py-3 px-10 rounded-lg shadow-[0px_4px_15px_rgba(242,183,5,0.4)] hover:scale-105 transition-all duration-300 uppercase tracking-wide w-full max-w-md lg:w-auto"
+                    >
                         QUERO GARANTIR MINHA VAGA
                     </button>
                     <span className="text-[10px] lg:text-xs text-slate-500 flex items-center gap-1">

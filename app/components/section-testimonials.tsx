@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 export function TestimonialsSection() {
@@ -43,7 +45,10 @@ export function TestimonialsSection() {
 
                 {/* Optional CTA */}
                 <div className="text-center">
-                    <button className="text-[#041021] text-lg font-bold border-b-2 border-[#F2B705] hover:text-[#F2B705] transition-colors pb-1">
+                    <button
+                        onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="text-[#041021] text-lg font-bold border-b-2 border-[#F2B705] hover:text-[#F2B705] transition-colors pb-1"
+                    >
                         QUERO TER ESSA SEGURANÇA NA MINHA PRÁTICA ➔
                     </button>
                 </div>

@@ -1,8 +1,10 @@
+'use client';
+
 import { CheckCircle, Lock } from 'lucide-react';
 
 export function OfferSection() {
     const deliverables = [
-        "Acesso Vitalício à Academia",
+        "Acesso Imediato à Academia",
         "Drive de Protocolos",
         "6 Encontros de Mentoria",
         "1 Ano de Comunidade WhatsApp",
@@ -21,7 +23,7 @@ export function OfferSection() {
     ];
 
     return (
-        <section className="bg-navy py-24 text-white">
+        <section id="oferta" className="bg-navy py-24 text-white">
             <div className="container mx-auto px-4 max-w-5xl">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-6">
@@ -65,12 +67,17 @@ export function OfferSection() {
                             <div>
                                 <p className="text-slate-500 font-medium mb-2">Condição Exclusiva</p>
                                 <div className="text-4xl lg:text-5xl font-bold text-navy">
-                                    R$ 2.997,00
+                                    12x R$ 297,00
                                 </div>
-                                <p className="text-slate-600 mt-2">à vista ou em até 12x sem juros</p>
+                                <p className="text-slate-600 mt-2 font-medium">
+                                    ou à vista R$ 2.997,00
+                                </p>
                             </div>
 
-                            <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg text-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse">
+                            <button
+                                onClick={() => window.open('https://pay.hotmart.com/SEU_LINK_AQUI', '_blank')}
+                                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg text-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse"
+                            >
                                 Garantir minha vaga agora
                             </button>
 
