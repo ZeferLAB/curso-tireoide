@@ -1,43 +1,65 @@
+import { Medal } from 'lucide-react';
+import Image from 'next/image';
+
 export function BioSection() {
     return (
-        <section className="bg-white py-24 mb-0">
-            <div className="container mx-auto px-4 max-w-5xl">
-                <div className="flex flex-col lg:flex-row gap-12 items-center">
-                    <div className="w-full lg:w-1/3">
-                        <div className="aspect-[3/4] bg-slate-200 rounded-2xl shadow-xl relative overflow-hidden border-4 border-white">
-                            <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">
-                                Foto Dra. Claudia
-                            </div>
+        <section className="bg-[#041021] py-16 lg:py-24 font-['Poppins'] text-white">
+            <div className="container mx-auto px-4 max-w-6xl">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+
+                    {/* LEFT COLUMN: Narrative */}
+                    <div className="w-full lg:w-1/2 space-y-8 order-2 lg:order-1">
+                        <h2 className="text-2xl lg:text-3xl font-bold text-[#F2B705] leading-tight uppercase">
+                            COM A MENTORIA DE QUEM VIVE O CAMPO DE BATALHA HÁ 30 ANOS.
+                        </h2>
+
+                        <div className="space-y-6 text-slate-300 leading-relaxed text-base lg:text-lg font-light">
+                            <p>
+                                Eu não nasci sabendo fazer biópsia e nem sempre tive a segurança que tenho hoje. No início, senti na pele a <strong className="text-white font-bold">lacuna cruel</strong> da nossa formação: a residência nos enche de teoria, mas muitas vezes nos deixa sozinhos na hora da prática, com o paciente na mesa e a agulha na mão.
+                            </p>
+                            <p>
+                                A virada de chave para mim não foi 'mais um livro'. Foi entender que a segurança não vem da sorte, vem do <strong className="text-white font-bold">domínio dos fundamentos</strong>. Percebi que ao dominar a Física (para controlar a máquina) e a Anatomia (para controlar a mão), o medo desaparecia.
+                            </p>
+                            <p>
+                                Hoje, com mais de <strong className="text-white font-bold">2.000 biópsias realizadas por ano</strong> e Título de Especialista pelo CBR, decidi criar esta Formação para ser o mentor que eu gostaria de ter tido lá atrás. Meu objetivo é encurtar o seu caminho entre a insegurança e a excelência técnica.
+                            </p>
+                        </div>
+
+                        {/* Signature - Placeholder font style */}
+                        <div className="pt-4">
+                            <span className="font-handwriting text-2xl lg:text-3xl text-white opacity-90 block" style={{ fontFamily: 'cursive' }}>
+                                Dra. Claudia Chagas
+                            </span>
+                        </div>
+
+                        {/* Credentials List */}
+                        <div className="grid gap-4 pt-6 border-t border-white/10">
+                            {[
+                                "Médica pela UFBA com Título de Especialista pelo CBR.",
+                                "Head de Biópsias em hospitais de alto volume e clínicas privadas.",
+                                "Coordenadora de cursos de referência em Intervenção."
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-start gap-3">
+                                    <Medal className="w-6 h-6 text-[#F2B705] shrink-0 mt-0.5" />
+                                    <span className="text-slate-200 text-sm lg:text-base font-medium">{item}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="w-full lg:w-2/3 space-y-6">
-                        <h2 className="text-3xl lg:text-4xl font-serif font-bold text-navy">
-                            Quem é a Dra. Claudia
-                        </h2>
-
-                        <p className="text-lg text-slate-700 leading-relaxed">
-                            Médica formada pela UFBA, com Título de Especialista pelo CBR e RQE ativo. São mais de 30 anos de prática clínica, com foco total em Radiologia Intervencionista de Cabeça e Pescoço e Mama.
-                        </p>
-
-                        <ul className="grid sm:grid-cols-2 gap-4">
-                            {[
-                                "Média de 2.000 biópsias por ano",
-                                "Atuação em hospitais de alto volume",
-                                "Coordenadora de cursos de biópsia",
-                                "Centenas de médicos treinados"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-2 text-slate-700 font-medium">
-                                    <div className="w-2 h-2 rounded-full bg-gold"></div>
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-
-                        <blockquote className="border-l-4 border-gold pl-6 py-2 italic text-slate-600 text-lg">
-                            "Mais do que títulos, a Dra. Claudia é médica de trincheira. Ela entende a solidão da sala de exame — e criou um método para transformar medo em domínio técnico."
-                        </blockquote>
+                    {/* RIGHT COLUMN: Photo */}
+                    <div className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
+                        <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-[#F2B705]/30 shadow-[0_0_40px_rgba(4,16,33,0.5)] bg-slate-800">
+                            <Image
+                                src="/claudia-bio.jpg"
+                                alt="Dra. Claudia Chagas"
+                                fill
+                                className="object-cover"
+                                unoptimized
+                            />
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>

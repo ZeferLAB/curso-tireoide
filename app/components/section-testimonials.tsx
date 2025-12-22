@@ -1,39 +1,53 @@
-import { Quote } from 'lucide-react';
+import Image from 'next/image';
 
 export function TestimonialsSection() {
-    const testimonials = [
-        "Mais segurança na classificação TI-RADS",
-        "Confiança para realizar PAAF",
-        "Reconhecimento de colegas e cirurgiões",
-        "Evolução técnica real na prática diária"
-    ];
-
     return (
-        <section className="bg-white py-24">
+        <section className="bg-slate-50 py-16 lg:py-24 font-['Poppins']">
             <div className="container mx-auto px-4 max-w-6xl">
-                <h2 className="text-3xl lg:text-4xl font-serif text-center text-navy font-bold mb-16">
-                    Médicos que passaram pela formação relatam:
+
+                {/* Headline */}
+                <h2 className="text-2xl lg:text-3xl font-bold text-center text-[#041021] mb-12 max-w-4xl mx-auto uppercase leading-snug">
+                    NÃO ACREDITE APENAS NA MINHA PALAVRA. VEJA O QUE MÉDICOS DE TODO O BRASIL DIZEM SOBRE O MÉTODO.
                 </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    {testimonials.map((text, i) => (
-                        <div key={i} className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                            <Quote className="w-8 h-8 text-gold/30 mb-4" />
-                            <p className="text-slate-700 font-medium leading-relaxed">
-                                "{text}"
-                            </p>
+                {/* Grid of Prints */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+
+                    {[
+                        { src: "/testimonials/t1.jpg", alt: "Depoimento Médico 1" },
+                        { src: "/testimonials/t2.jpg", alt: "Depoimento Médico 2" },
+                        { src: "/testimonials/t3.jpg", alt: "Depoimento Médico 3" },
+                        { src: "/testimonials/t4.jpg", alt: "Depoimento Médico 4" }
+                    ].map((item, index) => (
+                        <div key={index} className="relative rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all duration-300 border border-slate-200 bg-white group">
+                            {/* Decorative simplistic frame/header */}
+                            <div className="h-4 bg-[#F5F5F5] w-full border-b border-slate-100 flex items-center px-4 gap-1.5">
+                                <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                                <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                            </div>
+                            <div className="relative aspect-auto">
+                                <Image
+                                    src={item.src}
+                                    alt={item.alt}
+                                    width={600}
+                                    height={800}
+                                    className="w-full h-auto object-cover opacity-95 group-hover:opacity-100 transition-opacity duration-300"
+                                    unoptimized
+                                />
+                            </div>
                         </div>
                     ))}
+
                 </div>
 
-                {/* Image Placeholders Area */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50">
-                    {[1, 2, 3, 4].map((_, i) => (
-                        <div key={i} className="aspect-[3/4] bg-slate-200 rounded-lg animate-pulse flex items-center justify-center text-slate-400 text-sm">
-                            Print Real {i + 1}
-                        </div>
-                    ))}
+                {/* Optional CTA */}
+                <div className="text-center">
+                    <button className="text-[#041021] text-lg font-bold border-b-2 border-[#F2B705] hover:text-[#F2B705] transition-colors pb-1">
+                        QUERO TER ESSA SEGURANÇA NA MINHA PRÁTICA ➔
+                    </button>
                 </div>
+
             </div>
         </section>
     );

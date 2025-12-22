@@ -14,7 +14,7 @@ export function BonusSection() {
                         </div>
 
                         <h2 className="text-3xl font-serif font-bold text-navy mb-4">
-                            ⚡ Bônus de Ação Rápida: Super Bônus Exclusivo: Hands-on Virtual
+                            ⚡ Super Bônus Exclusivo: Hands-on Virtual
                         </h2>
 
                         <p className="text-xl text-slate-700 leading-relaxed max-w-2xl mx-auto">

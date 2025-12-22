@@ -13,11 +13,11 @@ export function ModulesSection() {
             subtitle: "Treinamento técnico profundo, direto ao ponto e aplicável na rotina:",
             icon: BookOpen,
             items: [
-                "Bootcamp de Física e Ajuste de Imagem – controle total do aparelho, independentemente do modelo",
-                "Bootcamp de Domínio do TI-RADS – raciocínio claro para classificar e decidir sem dúvida",
-                "Protocolo Descomplicando a Biópsia – técnica, posicionamento e triangulação",
-                "Masterclass de Alcoolização de Nódulos da Tireoide – procedimento de alto valor agregado",
-                "O Olhar do Especialista – aulas com convidados (cirurgiões e especialistas)"
+                "<strong>Bootcamp de Física e Ajuste de Imagem</strong> – controle total do aparelho, independentemente do modelo",
+                "<strong>Bootcamp de Domínio do TI-RADS</strong> – raciocínio claro para classificar e decidir sem dúvida",
+                "<strong>Protocolo Descomplicando a Biópsia</strong> – técnica, posicionamento e triangulação",
+                "<strong>Masterclass de Alcoolização</strong> de Nódulos da Tireoide – procedimento de alto valor agregado",
+                "<strong>O Olhar do Especialista</strong> – aulas com convidados (cirurgiões e especialistas)"
             ]
         },
         {
@@ -25,9 +25,9 @@ export function ModulesSection() {
             subtitle: "Tudo o que você precisa para ganhar tempo e segurança no dia a dia:",
             icon: FileText,
             items: [
-                "Arsenal de Laudos Editáveis e validados",
-                "Guias de Bolso (TI-RADS e Bethesda)",
-                "Biblioteca de Referência com artigos traduzidos e comentados"
+                "<strong>Arsenal de Laudos Editáveis</strong> e validados",
+                "<strong>Guias de Bolso</strong> (TI-RADS e Bethesda)",
+                "<strong>Biblioteca de Referência</strong> com artigos traduzidos e comentados"
             ]
         },
         {
@@ -35,54 +35,74 @@ export function ModulesSection() {
             subtitle: "Onde o conhecimento vira confiança:",
             icon: MessageCircle,
             items: [
-                "Plantão de Dúvidas ao Vivo (6 encontros): Hotseat quinzenal no Zoom para análise dos seus casos reais e difíceis",
-                "Grupo de Second Opinion (WhatsApp): Acesso por 1 ano à comunidade para tirar dúvidas em tempo real e trocar experiências com outros médicos"
+                "<strong>Plantão de Dúvidas ao Vivo</strong> (6 encontros): Hotseat quinzenal no Zoom para análise dos seus casos reais e difíceis",
+                "<strong>Grupo de Second Opinion</strong> (WhatsApp): Acesso por 1 ano à comunidade para tirar dúvidas em tempo real e trocar experiências com outros médicos"
             ]
         }
     ];
 
     return (
-        <section className="bg-slate-50 py-24">
+        <section className="bg-slate-50 py-16 lg:py-24 font-['Poppins']">
             <div className="container mx-auto px-4 max-w-4xl">
+                {/* Headline Section */}
+                <div className="text-center mb-12">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-[#041021] mb-4 uppercase leading-snug">
+                        O QUE É A FORMAÇÃO COMPLETA EM ULTRASSOM E BIÓPSIA DE TIREOIDE
+                    </h2>
+                    <p className="text-lg text-slate-600 font-light max-w-3xl mx-auto">
+                        Mais do que um curso: uma estrutura completa de evolução profissional. Esta formação foi desenhada para transformar conhecimento técnico em autoridade prática, reunindo conteúdo, ferramentas e acompanhamento.
+                    </p>
+                </div>
+
                 <div className="space-y-4">
                     {modules.map((module, idx) => {
                         const isOpen = openIndex === idx;
                         const Icon = module.icon;
 
                         return (
-                            <div key={idx} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                            <div key={idx} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-[#F2B705]/50 transition-colors duration-300">
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : idx)}
                                     className="w-full flex items-center justify-between p-6 lg:p-8 text-left hover:bg-slate-50 transition-colors"
                                 >
                                     <div className="flex items-center gap-4 lg:gap-6">
-                                        <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors", isOpen ? "bg-navy text-gold" : "bg-slate-100 text-slate-400")}>
+                                        <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors", isOpen ? "bg-[#041021] text-[#F2B705]" : "bg-slate-100 text-slate-400 group-hover:text-[#041021]")}>
                                             <Icon className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className={clsx("text-xl font-serif font-bold transition-colors", isOpen ? "text-navy" : "text-slate-700")}>
+                                            <h3 className={clsx("text-lg lg:text-xl font-bold transition-colors uppercase", isOpen ? "text-[#041021]" : "text-slate-700 group-hover:text-[#041021]")}>
                                                 {module.title}
                                             </h3>
                                             {!isOpen && (
-                                                <p className="text-sm text-slate-500 mt-1 hidden lg:block">
+                                                <p className="text-sm text-slate-500 mt-1 hidden lg:block font-light">
                                                     {module.subtitle}
                                                 </p>
                                             )}
                                         </div>
                                     </div>
-                                    {isOpen ? <ChevronUp className="text-gold" /> : <ChevronDown className="text-slate-400" />}
+
+                                    {/* Enhanced Toggle Icon */}
+                                    <div className="flex items-center gap-2 text-sm font-medium text-[#F2B705]">
+                                        <span className="hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity">
+                                            {isOpen ? "Minimizar" : "Ver Detalhes"}
+                                        </span>
+                                        {isOpen ?
+                                            <ChevronUp className="w-6 h-6 lg:w-8 lg:h-8" /> :
+                                            <ChevronDown className="w-6 h-6 lg:w-8 lg:h-8" />
+                                        }
+                                    </div>
                                 </button>
 
-                                <div className={clsx("transition-all duration-300 ease-in-out border-t border-slate-100", isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden")}>
+                                <div className={clsx("transition-all duration-300 ease-in-out border-t border-slate-100", isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 overflow-hidden")}>
                                     <div className="p-8 bg-slate-50/50">
-                                        <p className="font-medium text-navy mb-4 italic">
+                                        <p className="font-medium text-[#041021] mb-6 italic border-l-4 border-[#F2B705] pl-4">
                                             {module.subtitle}
                                         </p>
-                                        <ul className="space-y-3">
+                                        <ul className="space-y-4">
                                             {module.items.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3 text-slate-700">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0"></div>
-                                                    <span>{item}</span>
+                                                <li key={i} className="flex items-start gap-3 text-slate-700 leading-relaxed">
+                                                    <div className="w-2 h-2 rounded-full bg-[#F2B705] mt-2 shrink-0"></div>
+                                                    <span dangerouslySetInnerHTML={{ __html: item }} />
                                                 </li>
                                             ))}
                                         </ul>
