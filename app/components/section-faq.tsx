@@ -2,11 +2,38 @@ import { ChevronDown } from 'lucide-react';
 
 export function FAQSection() {
     const faqs = [
-        { q: "Preciso ter experiência prévia?", a: "Recomendável ter base em USG" },
-        { q: "Nunca fiz PAAF. Consigo aprender?", a: "Sim, do zero" },
-        { q: "As mentorias ficam gravadas?", a: "Sim" },
-        { q: "Preciso de aparelho top de linha?", a: "Não" },
-        { q: "O certificado é válido?", a: "Sim, curso livre de aperfeiçoamento" }
+        {
+            q: "As aulas são ao vivo ou gravadas?",
+            a: "O Curso é uma formação Híbrida. Você tem acesso imediato à Academia de Procedimentos (aulas gravadas em alta qualidade) para assistir quando quiser. Além disso, teremos os Encontros de Mentoria Ao Vivo (quinzenais) para análise de casos e tira-dúvidas diretamente com a Dra. Claudia."
+        },
+        {
+            q: "Qual é a duração das aulas e do curso?",
+            a: "O curso foi desenhado para médicos ocupados. As aulas gravadas são objetivas e divididas por temas específicos, evitando vídeos longos e cansativos de 2 horas. Você consegue assistir a um tópico completo entre um paciente e outro. O tempo total de conclusão depende do seu ritmo, mas em 12 semanas é possível consumir todo o conteúdo e participar das mentorias."
+        },
+        {
+            q: "Por quanto tempo terei acesso?",
+            a: "Você terá 1 ano de acesso à plataforma de aulas gravadas para rever quantas vezes precisar. O acesso à Comunidade e às Mentorias ao vivo é válido por 1 ano."
+        },
+        {
+            q: "Tem material didático para baixar?",
+            a: "Sim, e muito mais do que simples slides. Você terá acesso ao Drive de Protocolos Médicos, contendo modelos de laudos editáveis, tabelas de classificação (TI-RADS/Bethesda) para consulta rápida no celular e artigos científicos traduzidos."
+        },
+        {
+            q: "Quando abre uma nova turma?",
+            a: "As vagas para o Curso estão abertas agora, mas são limitadas devido à capacidade de suporte da Dra. Claudia nas mentorias e no WhatsApp. Se as vagas para o acompanhamento ao vivo esgotarem, encerraremos as inscrições sem aviso prévio para prezar pela qualidade do grupo."
+        },
+        {
+            q: "Em qual plataforma fica o curso? Consigo assistir no celular?",
+            a: "Todo o material está hospedado na Hotmart, a plataforma mais segura do mundo. Você pode assistir de qualquer dispositivo (celular, tablet, notebook) e até baixar as aulas no aplicativo para assistir offline quando estiver sem internet."
+        },
+        {
+            q: "Como funciona o parcelamento e o pagamento?",
+            a: "Você pode parcelar em até 12x no cartão de crédito. Também aceitamos pagamento à vista via PIX, Boleto ou saldo da Hotmart. Caso precise de uma condição especial ou parcelamento no boleto, chame nossa equipe no botão de WhatsApp nesta página."
+        },
+        {
+            q: "Como funciona a garantia?",
+            a: "Você tem 7 dias de Garantia Incondicional. Inscreva-se, entre na plataforma, assista às primeiras aulas e conheça a comunidade. Se por qualquer motivo achar que não é para você, basta enviar um e-mail para [SEU EMAIL DE SUPORTE AQUI] que devolveremos 100% do seu investimento. O risco é todo nosso."
+        }
     ];
 
     return (

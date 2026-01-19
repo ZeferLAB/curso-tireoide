@@ -36,7 +36,7 @@ export function ModulesSection() {
             icon: MessageCircle,
             items: [
                 "<strong>Plantão de Dúvidas ao Vivo</strong> (6 encontros): Grand Round quinzenal no Zoom para análise dos seus casos reais e difíceis",
-                "<strong>Grupo de Second Opinion</strong> (WhatsApp): Acesso por 1 ano à comunidade para tirar dúvidas em tempo real e trocar experiências com outros médicos"
+                "<strong>Grupo de Second Opinion</strong> (WhatsApp): Acesso por 1 ano à comunidade para tirar dúvidas e trocar experiências com outros médicos"
             ]
         }
     ];
@@ -119,7 +119,7 @@ export function ModulesSection() {
                         onClick={() => document.getElementById('oferta')?.scrollIntoView({ behavior: 'smooth' })}
                         className="bg-[#041021] hover:bg-[#1a253a] text-white text-lg font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-wide border-2 border-[#F2B705]"
                     >
-                        VER VALORES E PLANOS
+                        Garantir minha vaga agora
                     </button>
                 </div>
             </div>

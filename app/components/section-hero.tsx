@@ -1,6 +1,7 @@
 'use client';
 
-import { Play, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
+import { YouTubeVSLPlayer } from './youtube-vsl-player';
 
 export function HeroSection() {
     return (
@@ -19,24 +20,12 @@ export function HeroSection() {
 
                 {/* Subheadline */}
                 <p className="text-[14px] lg:text-[16px] text-[#E0E0E0] mb-6 leading-relaxed max-w-3xl mx-auto font-light">
-                    Descubra a Tríade da Competência: o único método que une a Física do Ultrassom, o Raciocínio Clínico e a Técnica de Mão para te dar autonomia diagnóstica e cirúrgica. Assista à apresentação técnica abaixo.
+                    Descubra a Tríade da Competência: Física do Ultrassom, o Raciocínio Clínico e a Técnica de Mão para te dar autonomia diagnóstica e cirúrgica. Assista à apresentação técnica abaixo.
                 </p>
 
                 {/* Video Container - Compact Spacing */}
-                <div className="relative w-full max-w-3xl mx-auto mb-6">
-                    <div className="aspect-video w-full bg-slate-900 border border-[#F2B705] rounded-xl shadow-[0_0_40px_rgba(4,16,33,0.6)] flex items-center justify-center relative group cursor-pointer overflow-hidden">
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-300"></div>
-
-                        {/* Play Button */}
-                        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#F2B705] flex items-center justify-center pl-1 shadow-lg transform group-hover:scale-110 transition-transform duration-300 z-10 animate-pulse">
-                            <Play className="w-6 h-6 lg:w-8 lg:h-8 text-[#041021] fill-current" />
-                        </div>
-
-                        <p className="absolute bottom-4 font-medium tracking-wide text-xs lg:text-sm opacity-90 z-10 text-white drop-shadow-md">
-                            ASSISTIR APRESENTAÇÃO
-                        </p>
-                    </div>
+                <div className="mb-6">
+                    <YouTubeVSLPlayer videoId="sSFsLnG2vQw" />
                 </div>
 
                 {/* Bullets - Benefits */}

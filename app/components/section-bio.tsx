@@ -17,7 +17,7 @@ export function BioSection() {
 
                         <div className="space-y-6 text-slate-300 leading-relaxed text-base lg:text-lg font-light">
                             <p>
-                                Eu não nasci sabendo fazer biópsia e nem sempre tive a segurança que tenho hoje. No início, senti na pele a <strong className="text-white font-bold">lacuna cruel</strong> da nossa formação: a residência nos enche de teoria, mas muitas vezes nos deixa sozinhos na hora da prática, com o paciente na mesa e a agulha na mão.
+                                Eu não nasci sabendo fazer biópsia e nem sempre tive a segurança que tenho hoje. No início, senti na pele todas as dificuldades que você sente atualmente, quando estamos orientados ótimo, mas quando nos vemos sozinhos na hora da prática, com o paciente na mesa e a agulha na mão.
                             </p>
                             <p>
                                 A virada de chave para mim não foi 'mais um livro'. Foi entender que a segurança não vem da sorte, vem do <strong className="text-white font-bold">domínio dos fundamentos</strong>. Percebi que ao dominar a Física (para controlar a máquina) e a Anatomia (para controlar a mão), o medo desaparecia.

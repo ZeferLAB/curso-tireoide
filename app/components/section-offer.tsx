@@ -2,7 +2,7 @@
 
 import { CheckCircle, Lock } from 'lucide-react';
 import { useState } from 'react';
-import { CheckoutModal } from './checkout-modal';
+import { CheckoutProtectionModal } from './checkout-protection-modal';
 
 export function OfferSection() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,10 +28,9 @@ export function OfferSection() {
 
     return (
         <section id="oferta" className="bg-navy py-24 text-white">
-            <CheckoutModal
+            <CheckoutProtectionModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                checkoutUrl="https://pay.hotmart.com/SEU_LINK_AQUI"
             />
 
             <div className="container mx-auto px-4 max-w-5xl">
@@ -77,7 +76,7 @@ export function OfferSection() {
                             <div>
                                 <p className="text-slate-500 font-medium mb-2">Condição Exclusiva</p>
                                 <div className="text-4xl lg:text-5xl font-bold text-navy">
-                                    12x R$ 297,00
+                                    12x R$ 249,75
                                 </div>
                                 <p className="text-slate-600 mt-2 font-medium">
                                     ou à vista R$ 2.997,00
