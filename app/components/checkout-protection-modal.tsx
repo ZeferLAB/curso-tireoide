@@ -31,30 +31,36 @@ export function CheckoutProtectionModal({ isOpen, onClose }: CheckoutProtectionM
 
         try {
             // 1. Enviar dados para o Brevo (Background)
-            const brevoFormData = new FormData();
-            brevoFormData.append('NOME', formData.name);
-            brevoFormData.append('EMAIL', formData.email);
-            brevoFormData.append('SMS', formData.phone);
-            brevoFormData.append('SMS__COUNTRY_CODE', '+55');
-            brevoFormData.append('locale', 'pt');
-            brevoFormData.append('email_address_check', '');
+            // 1. Enviar dados para o Brevo (Background)
+            // Usando URLSearchParams para garantir Content-Type: application/x-www-form-urlencoded
+            const brevoParams = new URLSearchParams();
+            brevoParams.append('NOME', formData.name);
+            brevoParams.append('EMAIL', formData.email);
+
+            // Limpar telefone (apenas números) para evitar erro de validação no Brevo
+            const cleanPhone = formData.phone.replace(/\D/g, '');
+            brevoParams.append('SMS', cleanPhone);
+
+            brevoParams.append('SMS__COUNTRY_CODE', '+55');
+            brevoParams.append('locale', 'pt');
+            brevoParams.append('email_address_check', '');
 
             await fetch('https://43e5b9ac.sibforms.com/serve/MUIFAJvo4hgXnaFZlW3yCQgB0g4GXJcW4MZjq7-uU6w417FSPuGASVx-wXfhZx8QwHneRE82_Dl-F3H2h2awf2FNRF_GTecMsSuxsuUIm2mGjbRiaS1zF84UTLmK1Nw3hyB7c8AmBc1jLLi1IvybWJHqJyDU4nlqBJuvFTyVUeGkRRvcukjiRFNpS7hxmJMxGc_0-f3FodzlL2ISiQ==', {
                 method: 'POST',
-                body: brevoFormData,
-                mode: 'no-cors' // Importante para não bloquear Cross-Origin
+                body: brevoParams,
+                mode: 'no-cors'
             });
 
             // 2. Redirecionar para Hotmart com parâmetros
             // URL Base: https://pay.hotmart.com/R97988256B
             // Params: name, email, phoneac (DD + numero)
-            const params = new URLSearchParams({
+            const hotmartParams = new URLSearchParams({
                 name: formData.name,
                 email: formData.email,
                 phoneac: formData.phone // Hotmart geralmente aceita 'phoneac' ou 'phone_number'
             });
 
-            window.location.href = `https://pay.hotmart.com/R97988256B?checkoutMode=10&${params.toString()}`;
+            window.location.href = `https://pay.hotmart.com/R97988256B?checkoutMode=10&${hotmartParams.toString()}`;
 
         } catch (error) {
             console.error('Erro ao processar', error);
