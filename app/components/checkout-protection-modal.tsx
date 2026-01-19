@@ -31,24 +31,13 @@ export function CheckoutProtectionModal({ isOpen, onClose }: CheckoutProtectionM
 
         try {
             // 1. Enviar dados para o Brevo (Background)
-            // 1. Enviar dados para o Brevo (Background)
-            // Usando URLSearchParams para garantir Content-Type: application/x-www-form-urlencoded
-            const brevoParams = new URLSearchParams();
-            brevoParams.append('NOME', formData.name);
-            brevoParams.append('EMAIL', formData.email);
-
-            // Limpar telefone (apenas números) para evitar erro de validação no Brevo
-            const cleanPhone = formData.phone.replace(/\D/g, '');
-            brevoParams.append('SMS', cleanPhone);
-
-            brevoParams.append('SMS__COUNTRY_CODE', '+55');
-            brevoParams.append('locale', 'pt');
-            brevoParams.append('email_address_check', '');
-
-            await fetch('https://43e5b9ac.sibforms.com/serve/MUIFAJvo4hgXnaFZlW3yCQgB0g4GXJcW4MZjq7-uU6w417FSPuGASVx-wXfhZx8QwHneRE82_Dl-F3H2h2awf2FNRF_GTecMsSuxsuUIm2mGjbRiaS1zF84UTLmK1Nw3hyB7c8AmBc1jLLi1IvybWJHqJyDU4nlqBJuvFTyVUeGkRRvcukjiRFNpS7hxmJMxGc_0-f3FodzlL2ISiQ==', {
+            // 1. Enviar dados para o Brevo via API Route (Server-Side para evitar CORS)
+            await fetch('/api/subscribe', {
                 method: 'POST',
-                body: brevoParams,
-                mode: 'no-cors'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
             });
 
             // 2. Redirecionar para Hotmart com parâmetros
@@ -60,12 +49,13 @@ export function CheckoutProtectionModal({ isOpen, onClose }: CheckoutProtectionM
                 phoneac: formData.phone // Hotmart geralmente aceita 'phoneac' ou 'phone_number'
             });
 
-            window.location.href = `https://pay.hotmart.com/R97988256B?checkoutMode=10&${hotmartParams.toString()}`;
+            // Removido checkoutMode=10 para manter a seleção de pagamento padrão (Cartão)
+            window.location.href = `https://pay.hotmart.com/R97988256B?${hotmartParams.toString()}`;
 
         } catch (error) {
             console.error('Erro ao processar', error);
             // Fallback: Redireciona mesmo se der erro no log (pra não perder a venda)
-            window.location.href = `https://pay.hotmart.com/R97988256B?checkoutMode=10`;
+            window.location.href = `https://pay.hotmart.com/R97988256B`;
         } finally {
             setIsLoading(false);
         }
