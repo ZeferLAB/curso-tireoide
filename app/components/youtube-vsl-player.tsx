@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Play } from 'lucide-react';
 import Image from 'next/image';
 
@@ -9,11 +9,91 @@ interface YouTubeVSLPlayerProps {
     thumbnailUrl?: string;
 }
 
+declare global {
+    interface Window {
+        onYouTubeIframeAPIReady: () => void;
+        YT: any;
+    }
+}
+
 export function YouTubeVSLPlayer({ videoId, thumbnailUrl }: YouTubeVSLPlayerProps) {
     const [isPlaying, setIsPlaying] = useState(false);
+    const playerRef = useRef<HTMLDivElement>(null);
+    const playerInstanceRef = useRef<any>(null);
 
     // Default thumbnail if none provided
     const poster = thumbnailUrl || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+    useEffect(() => {
+        if (!isPlaying) return;
+
+        const loadVideo = () => {
+            if (!playerRef.current) return;
+
+            // Prevent creating multiple players
+            if (playerInstanceRef.current) return;
+
+            playerInstanceRef.current = new window.YT.Player(playerRef.current, {
+                videoId: videoId,
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    autoplay: 1,
+                    rel: 0,
+                    controls: 0,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    disablekb: 1,
+                    iv_load_policy: 3,
+                    fs: 0,
+                    playsinline: 1
+                },
+                events: {
+                    onStateChange: (event: any) => {
+                        // 0 = YT.PlayerState.ENDED
+                        if (event.data === 0) {
+                            setIsPlaying(false);
+                            // Cleanup player instance
+                            if (playerInstanceRef.current) {
+                                playerInstanceRef.current.destroy();
+                                playerInstanceRef.current = null;
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        if (window.YT && window.YT.Player) {
+            loadVideo();
+        } else {
+            // Check if script is already in the DOM
+            if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+                const tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+            }
+
+            const existingCallback = window.onYouTubeIframeAPIReady;
+            window.onYouTubeIframeAPIReady = () => {
+                if (existingCallback) existingCallback();
+                loadVideo();
+            };
+        }
+
+        return () => {
+            // Cleanup when unmounting or stopping
+            if (playerInstanceRef.current) {
+                try {
+                    playerInstanceRef.current.destroy();
+                } catch (e) {
+                    console.error("Error destroying YT player", e);
+                }
+                playerInstanceRef.current = null;
+            }
+        };
+    }, [isPlaying, videoId]);
 
     const handlePlay = () => {
         setIsPlaying(true);
@@ -55,17 +135,7 @@ export function YouTubeVSLPlayer({ videoId, thumbnailUrl }: YouTubeVSLPlayerProp
             ) : (
                 /* Player State */
                 <div className="absolute inset-0 w-full h-full bg-black">
-                    <iframe
-                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&controls=0&showinfo=0&modestbranding=1&disablekb=1&iv_load_policy=3&fs=0`}
-                        title="YouTube VSL"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full border-0"
-                    />
-
-                    {/* Optional: Transparent layer to block clicks on video (except pause) if desired.
-                        For now, leaving accessible interaction as controls=0 already hides the bar. 
-                    */}
+                    <div ref={playerRef} className="w-full h-full" />
                 </div>
             )}
         </div>
