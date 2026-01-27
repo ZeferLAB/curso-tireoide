@@ -9,7 +9,7 @@ export function ModulesSection() {
 
     const modules = [
         {
-            title: "Academia de Procedimentos – Aulas Gravadas (Acesso Vitalício)",
+            title: "Academia de Procedimentos – Aulas Gravadas",
             subtitle: "Treinamento técnico profundo, direto ao ponto e aplicável na rotina:",
             icon: BookOpen,
             items: [
@@ -62,8 +62,9 @@ export function ModulesSection() {
                         return (
                             <div key={idx} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-[#F2B705]/50 transition-colors duration-300">
                                 <button
+                                    type="button"
                                     onClick={() => setOpenIndex(isOpen ? null : idx)}
-                                    className="w-full flex items-center justify-between p-6 lg:p-8 text-left hover:bg-slate-50 transition-colors"
+                                    className="w-full flex items-center justify-between p-6 lg:p-8 text-left hover:bg-slate-50 transition-colors cursor-pointer"
                                 >
                                     <div className="flex items-center gap-4 lg:gap-6">
                                         <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors", isOpen ? "bg-[#041021]" : "bg-white border border-slate-100")}>

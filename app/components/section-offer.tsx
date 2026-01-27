@@ -76,7 +76,7 @@ export function OfferSection() {
                             <div>
                                 <p className="text-slate-500 font-medium mb-2">Condição Exclusiva</p>
                                 <div className="text-4xl lg:text-5xl font-bold text-navy">
-                                    12x R$ 249,75
+                                    12 x de R$ 309,96
                                 </div>
                                 <p className="text-slate-600 mt-2 font-medium">
                                     ou à vista R$ 2.997,00
