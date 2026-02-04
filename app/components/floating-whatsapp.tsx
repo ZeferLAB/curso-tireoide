@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export function FloatingWhatsApp() {
-    const phoneNumber = "5571997009277";
+    const phoneNumber = "5571996826482";
     const message = encodeURIComponent("Olá! Estou na página do Curso de Tireoide e gostaria de tirar uma dúvida sobre a matrícula.");
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
