@@ -27,6 +27,11 @@ export function HeroSection() {
                             Elimine de vez a insegurança no TI-RADS. Descubra a Tríade da Competência para ter mão firme na biópsia e autonomia total no diagnóstico.
                         </p>
 
+                        {/* Mobile Video (Visible only on lg and below) */}
+                        <div className="block lg:hidden mb-8 shadow-xl rounded-xl overflow-hidden border-2 border-white bg-black">
+                            <YouTubeVSLPlayer videoId="sSFsLnG2vQw" />
+                        </div>
+
                         {/* CTA Button */}
                         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-8">
                             <button
@@ -57,8 +62,8 @@ export function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right Column: Video */}
-                    <div className="relative w-full max-w-lg mx-auto lg:max-w-none">
+                    {/* Right Column: Video (Desktop Only) */}
+                    <div className="relative w-full max-w-lg mx-auto lg:max-w-none hidden lg:block">
                         <div className="shadow-2xl rounded-xl overflow-hidden border-4 border-white bg-black">
                             <YouTubeVSLPlayer videoId="sSFsLnG2vQw" />
                         </div>
