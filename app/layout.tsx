@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Playfair_Display, Poppins } from "next/font/google";
+import { Inter, Playfair_Display, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { FloatingWhatsApp } from "./components/floating-whatsapp";
 
@@ -20,6 +20,12 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   title: "Formação Completa em Ultrassom e Biópsia de Tireoide",
   description: "Formação para médicos que desejam dominar USG e Biópsia de Tireoide.",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfair.variable} ${poppins.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} ${poppins.variable} ${montserrat.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -57,6 +63,18 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
+
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vfgpo1pxt6");
+          `}
+        </Script>
+        {/* End Microsoft Clarity */}
 
         {children}
         <FloatingWhatsApp />
