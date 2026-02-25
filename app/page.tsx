@@ -18,11 +18,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 font-sans selection:bg-gold selection:text-navy">
       <HeroSection />
+      <MethodSection />
       <PositioningSection />
       <TargetAudienceSection />
       <TestimonialsSection />
       <BioSection />
-      <MethodSection />
       <ModulesSection />
 
       <FinalProofSection />
